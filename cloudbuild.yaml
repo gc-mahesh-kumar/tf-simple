@@ -1,0 +1,15 @@
+steps:
+#Build and push the image --> Cloud Build Service Account, Service Account User & Viewer Role
+- name: 'hashicorp/terraform'
+  args: ['init']
+
+#Plan
+- name: 'hashicorp/terraform'
+  args: ['plan']
+
+#Execution
+- name: 'hashicorp/terraform'
+  args: ['apply', '-auto-approve']
+
+options:
+  logging: CLOUD_LOGGING_ONLY
